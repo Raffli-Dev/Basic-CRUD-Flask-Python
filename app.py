@@ -1,12 +1,20 @@
-# sebelum belajar crud wajib mengetahui ORM
 from flask import Flask, redirect, url_for, render_template, request
 from pymongo import MongoClient
+import os
 from bson import ObjectId
-
-client = MongoClient("mongodb://latihan:caplin11@ac-s43qydu-shard-00-00.xrmw0we.mongodb.net:27017,ac-s43qydu-shard-00-01.xrmw0we.mongodb.net:27017,ac-s43qydu-shard-00-02.xrmw0we.mongodb.net:27017/?ssl=true&replicaSet=atlas-b6z32o-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Latihan")
-db = client.latihanSertifikasi
+from dotenv import load_dotenv
+from os.path import join, dirname
 
 app=Flask(__name__)
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+
+MONGODB_URI = os.environ.get("MONGODB_URI")
+DB_NAME = os.environ.get("DB_NAME")
+
+client = MongoClient(MONGODB_URI)
+db = client[DB_NAME]
+
 @app.route('/',methods=['GET'])
 def home():
     orang = list(db.user.find({}))
