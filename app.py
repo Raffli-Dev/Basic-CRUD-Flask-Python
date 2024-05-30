@@ -1,3 +1,4 @@
+# sebelum belajar crud wajib mengetahui ORM
 from flask import Flask, redirect, url_for, render_template, request
 from pymongo import MongoClient
 from bson import ObjectId

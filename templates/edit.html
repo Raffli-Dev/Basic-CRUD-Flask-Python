@@ -23,6 +23,7 @@
         align-items: center;
         min-height: 100vh;
       }
+      
       .form-container {
         width: 80%;
         max-width: 800px;
@@ -48,6 +49,7 @@
               class="form-control"
               placeholder="Masukan Nomer HP"
               value="{{data[0].Telepon}}"
+              required
             />
           </p>
           <p>
@@ -58,6 +60,7 @@
               class="form-control"
               placeholder="Masukan Nama"
               value="{{data[0].nama}}"
+              required
             />
           </p>
           <p>
@@ -68,6 +71,7 @@
               class="form-control"
               placeholder="Masukan Merek Laptop"
               value="{{data[0].Laptop}}"
+              required
             />
           </p>
           <button
